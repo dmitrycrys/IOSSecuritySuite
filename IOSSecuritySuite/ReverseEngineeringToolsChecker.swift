@@ -9,10 +9,51 @@
 import Foundation
 import MachO // dyld
 
+public struct ReverseEngineeringCheck: OptionSet {
+    public let rawValue: Int8
+
+    public init(rawValue: Int8) {
+        self.rawValue = rawValue
+    }
+
+    public static let dyld = ReverseEngineeringCheck(rawValue: 1)
+    public static let suspiciousFiles = ReverseEngineeringCheck(rawValue: 1 << 1)
+    public static let openedPorts = ReverseEngineeringCheck(rawValue: 1 << 2)
+    public static let pSelectFlag = ReverseEngineeringCheck(rawValue: 1 << 3)
+}
+
 internal class ReverseEngineeringToolsChecker {
 
     static func amIReverseEngineered() -> Bool {
         return (checkDYLD() || checkExistenceOfSuspiciousFiles() || checkOpenedPorts() || checkPSelectFlag())
+    }
+
+    /**
+     Combinate and perform all reverse engineering checks like dyld, existence of suspicious files, opened ports,
+     P_SELECT flag
+     
+     - Returns: failed reverse engineering checks
+     */
+    static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
+        var result: ReverseEngineeringCheck = []
+
+        if checkDYLD() {
+            result.insert(.dyld)
+        }
+
+        if checkExistenceOfSuspiciousFiles() {
+            result.insert(.suspiciousFiles)
+        }
+
+        if checkOpenedPorts() {
+            result.insert(.openedPorts)
+        }
+
+        if checkPSelectFlag() {
+            result.insert(.pSelectFlag)
+        }
+
+        return result
     }
 
     private static func checkDYLD() -> Bool {

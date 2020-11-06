@@ -133,6 +133,18 @@ public class IOSSecuritySuite {
     }
     
     /**
+     This type method is used to determine which popular reverse engineering tools installed on the device
+     
+     Usage example
+     ```
+     let failedReverceEngineeringChecks = IOSSecuritySuite.getReverseEngineeringFailedChecks()
+     ```
+     */
+    public static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
+        return ReverseEngineeringToolsChecker.getReverseEngineeringFailedChecks()
+    }
+    
+    /**
     This type method is used to determine if `objc call` has been RuntimeHooked by for example `Flex`
      
     Usage example
