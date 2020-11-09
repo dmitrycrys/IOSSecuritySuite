@@ -34,7 +34,7 @@ internal class ReverseEngineeringToolsChecker {
      
      - Returns: failed reverse engineering checks
      */
-    static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
+    @inline(__always) static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
         var result: ReverseEngineeringCheck = []
 
         if checkDYLD() {

@@ -79,24 +79,28 @@ public class IOSSecuritySuite {
     /**
      This type method is used to determine if application is being debugged
      
+     function marked as @inline additional info could be found here https://swiftrocks.com/the-forbidden-inline-attribute-in-swift
+     
      Usage example
      ```
      let amIDebugged = IOSSecuritySuite.amIDebugged() ? true : false
      ```
      */
-    public static func amIDebugged() -> Bool {
+    @inline(__always) public static func amIDebugged() -> Bool {
         return DebuggerChecker.amIDebugged()
     }
 
     /**
      This type method is used to deny debugger and improve the application resillency
      
+     function marked as @inline additional info could be found here https://swiftrocks.com/the-forbidden-inline-attribute-in-swift
+     
      Usage example
      ```
      IOSSecuritySuite.denyDebugger()
      ```
      */
-    public static func denyDebugger() {
+    @inline(__always) public static func denyDebugger() {
         return DebuggerChecker.denyDebugger()
     }
     
@@ -135,12 +139,14 @@ public class IOSSecuritySuite {
     /**
      This type method is used to determine which popular reverse engineering tools installed on the device
      
+     function marked as @inline additional info could be found here https://swiftrocks.com/the-forbidden-inline-attribute-in-swift
+     
      Usage example
      ```
      let failedReverceEngineeringChecks = IOSSecuritySuite.getReverseEngineeringFailedChecks()
      ```
      */
-    public static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
+    @inline(__always) public static func getReverseEngineeringFailedChecks() -> ReverseEngineeringCheck {
         return ReverseEngineeringToolsChecker.getReverseEngineeringFailedChecks()
     }
     
