@@ -24,6 +24,7 @@
 		A90FD5FE24528925007212BF /* MSHookFunctionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FD5FD24528925007212BF /* MSHookFunctionChecker.swift */; };
 		A90FD60024528A94007212BF /* FishHookChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FD5FF24528A94007212BF /* FishHookChecker.swift */; };
 		A90FD60224528FD1007212BF /* RuntimeHookChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90FD60124528FD1007212BF /* RuntimeHookChecker.swift */; };
+		F5E1EF872559C33400285A9A /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E1EF862559C33400285A9A /* Obfuscator.swift */; };
 		FF2FF25D2499F7590050D02F /* FishHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2FF25C2499F7590050D02F /* FishHook.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		A90FD5FD24528925007212BF /* MSHookFunctionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSHookFunctionChecker.swift; sourceTree = "<group>"; };
 		A90FD5FF24528A94007212BF /* FishHookChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishHookChecker.swift; sourceTree = "<group>"; };
 		A90FD60124528FD1007212BF /* RuntimeHookChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeHookChecker.swift; sourceTree = "<group>"; };
+		F5E1EF862559C33400285A9A /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
 		FF2FF25C2499F7590050D02F /* FishHook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishHook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 				A90FD5FD24528925007212BF /* MSHookFunctionChecker.swift */,
 				A90FD5FF24528A94007212BF /* FishHookChecker.swift */,
 				A90FD60124528FD1007212BF /* RuntimeHookChecker.swift */,
+				F5E1EF862559C33400285A9A /* Obfuscator.swift */,
 			);
 			path = IOSSecuritySuite;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A90FD60024528A94007212BF /* FishHookChecker.swift in Sources */,
 				7A12583D24EFA8D40071460D /* IntegrityChecker.swift in Sources */,
 				70B0BBCB226F3A86000CFB39 /* JailbreakChecker.swift in Sources */,
+				F5E1EF872559C33400285A9A /* Obfuscator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
