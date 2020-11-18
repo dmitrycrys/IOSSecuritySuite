@@ -37,8 +37,8 @@ class Obfuscator {
         
         var decrypted = [UInt8]()
         
-        for k in key.enumerated() {
-            decrypted.append(k.element ^ cipher[k.offset % length])
+        for symbol in key.enumerated() {
+            decrypted.append(symbol.element ^ cipher[symbol.offset % length])
         }
         
         return String(bytes: decrypted, encoding: .utf8)!
