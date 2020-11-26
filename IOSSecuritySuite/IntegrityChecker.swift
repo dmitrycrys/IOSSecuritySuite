@@ -37,7 +37,7 @@ public enum FileIntegrityCheck {
     case plistModification
     
     // Checks that the application bundle encrypted
-    case encrypted
+    case encryption
     
 }
 
@@ -56,7 +56,7 @@ extension FileIntegrityCheck: Explainable {
             return "Signature not exists"
         case .plistModification:
             return "Info.plist was modified"
-        case .encrypted:
+        case .encryption:
             return "App bundle not encrypted"
         }
     }
@@ -104,7 +104,7 @@ internal class IntegrityChecker {
                     result = true
                     hitChecks.append(check)
                 }
-            case .encrypted:
+            case .encryption:
                 if !checkIsBundleEncrypted() {
                     result = true
                     hitChecks.append(check)
@@ -195,7 +195,7 @@ internal class IntegrityChecker {
             return true
         }
         
-        return true
+        return false
     }
     
     // Check is bundle encrypted
