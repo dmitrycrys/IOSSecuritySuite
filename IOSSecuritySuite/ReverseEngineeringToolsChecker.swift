@@ -9,7 +9,7 @@
 import Foundation
 import MachO // dyld
 
-public struct ReverseEngineeringCheck: OptionSet {
+public struct ReverseEngineeringCheck: OptionSet, CustomStringConvertible {
     public let rawValue: Int8
 
     public init(rawValue: Int8) {
@@ -20,6 +20,19 @@ public struct ReverseEngineeringCheck: OptionSet {
     public static let suspiciousFiles = ReverseEngineeringCheck(rawValue: 1 << 1)
     public static let openedPorts = ReverseEngineeringCheck(rawValue: 1 << 2)
     public static let pSelectFlag = ReverseEngineeringCheck(rawValue: 1 << 3)
+    
+    public var description: String {
+        Self.errorDescription.filter { contains($0.0) }
+            .map { $0.1 }
+            .joined(separator: "\n")
+    }
+    
+    private static var errorDescription: [(Self, String)] = [
+        (.dyld, "FridaGadget, frida, cynject, libcycript loaded"),
+        (.suspiciousFiles, "frida-server deteced"),
+        (.openedPorts, "Frida or Needle default ports opened"),
+        (.pSelectFlag, "P_SELECT flag is set, Frida is attached")
+    ]
 }
 
 internal class ReverseEngineeringToolsChecker {
